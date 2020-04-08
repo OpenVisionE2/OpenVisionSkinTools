@@ -40,10 +40,10 @@ cur_skin = config.skin.primary_skin.value.replace('skin.xml', '').replace('/', '
 
 reswidth = getDesktop(0).size().width()
 
-config.plugins.Openvision = ConfigSubsection()
-config.plugins.Openvision.refreshInterval = ConfigNumber(default=10)
-config.plugins.Openvision.woeid = ConfigNumber(default = 638242)
-config.plugins.Openvision.tempUnit = ConfigSelection(default="Celsius", choices = [
+config.plugins.OpenVision = ConfigSubsection()
+config.plugins.OpenVision.refreshInterval = ConfigNumber(default=10)
+config.plugins.OpenVision.woeid = ConfigNumber(default = 638242)
+config.plugins.OpenVision.tempUnit = ConfigSelection(default="Celsius", choices = [
 				("Celsius", _("Celsius")),
 				("Fahrenheit", _("Fahrenheit"))
 				])
@@ -55,7 +55,7 @@ def cprint(text):
         print REDC+text+ENDC 
 
 def Plugins(**kwargs):
-    	return [PluginDescriptor(name=_("Openvision Skin Tools"), description=_("Openvision Skin Tools"), where = PluginDescriptor.WHERE_MENU, fnc=menu)]
+    	return [PluginDescriptor(name=_("OpenVision Skin Tools"), description=_("OpenVision Skin Tools"), where = PluginDescriptor.WHERE_MENU, fnc=menu)]
 
 def menu(menuid, **kwargs):
 	if config.skin.primary_skin.value == "AtileHD/skin.xml" or config.skin.primary_skin.value == "iFlatFHD/skin.xml" or config.skin.primary_skin.value == "Multibox/skin.xml":
@@ -65,7 +65,7 @@ def menu(menuid, **kwargs):
 
 def main(session, **kwargs):
     cprint("Opening Menu ...")
-    session.open(Openvision_Config)
+    session.open(OpenVision_Config)
 			
 def isInteger(s):
 	try: 
@@ -124,10 +124,10 @@ class WeatherLocationChoiceList(Screen):
 		self.close(None)
 
 
-class Openvision_Config(Screen, ConfigListScreen):
+class OpenVision_Config(Screen, ConfigListScreen):
 	if reswidth == 1920:
 		skin = """
-			<screen name="Openvision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="MultiboxFHD Setup">
+			<screen name="OpenVision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="MultiboxFHD Setup">
   				<eLabel text="Choose yout style" position="18,18" size="1300,50" font="Regular;40" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1"/>
   				<eLabel text="Preview" position="1266,550" size="610,70" font="Regular;40" halign="center" valign="center" foregroundColor="#0000ff00" zPosition="2"/>
   				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="585,20" size="860,50" font="Regular;35" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1" halign="center"/>
@@ -158,7 +158,7 @@ class Openvision_Config(Screen, ConfigListScreen):
 		"""
 	else:
 		skin = """
-			<screen name="Openvision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="MultiboxFHD Setup">
+			<screen name="OpenVision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="MultiboxFHD Setup">
   				<eLabel text="Choose yout style" position="15,8" size="400,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1"/>
   				<eLabel text="Preview" position="813,375" size="446,40" font="Regular;25" halign="center" valign="center" foregroundColor="#0000ff00" zPosition="2"/>
   				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="359,8" size="568,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1" halign="center"/>
@@ -271,44 +271,44 @@ class Openvision_Config(Screen, ConfigListScreen):
 
 		# font
 		current, choices = self.getSettings(self.default_font_file, self.font_file)
-		self.Openvision_font = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_font = NoSave(ConfigSelection(default=current, choices = choices))
 		# color
 		current, choices = self.getSettings(self.default_color_file, self.color_file)
-		self.Openvision_color = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_color = NoSave(ConfigSelection(default=current, choices = choices))
 		# sb
 		current, choices = self.getSettings(self.default_sb_file, self.sb_file)
-		self.Openvision_sb = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_sb = NoSave(ConfigSelection(default=current, choices = choices))
 		# clock
 		current, choices = self.getSettings(self.default_clock_file, self.clock_file)
-		self.Openvision_clock = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_clock = NoSave(ConfigSelection(default=current, choices = choices))
 		# infobar
 		current, choices = self.getSettings(self.default_infobar_file, self.infobar_file)
-		self.Openvision_infobar = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_infobar = NoSave(ConfigSelection(default=current, choices = choices))
 		# background
 		current, choices = self.getSettings(self.default_background_file, self.background_file)
-		self.Openvision_background = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_background = NoSave(ConfigSelection(default=current, choices = choices))
 		# sib
 		current, choices = self.getSettings(self.default_sib_file, self.sib_file)
-		self.Openvision_sib = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_sib = NoSave(ConfigSelection(default=current, choices = choices))
 		# ch_se
 		current, choices = self.getSettings(self.default_ch_se_file, self.ch_se_file)
-		self.Openvision_ch_se = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_ch_se = NoSave(ConfigSelection(default=current, choices = choices))
 		# ev
 		current, choices = self.getSettings(self.default_ev_file, self.ev_file)
-		self.Openvision_ev = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_ev = NoSave(ConfigSelection(default=current, choices = choices))
 		# emcsel
 		current, choices = self.getSettings(self.default_emcsel_file, self.emcsel_file)
-		self.Openvision_emcsel = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_emcsel = NoSave(ConfigSelection(default=current, choices = choices))
 		# movsel
 		current, choices = self.getSettings(self.default_movsel_file, self.movsel_file)
-		self.Openvision_movsel = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_movsel = NoSave(ConfigSelection(default=current, choices = choices))
 		# ul
 		current, choices = self.getSettings(self.default_ul_file, self.ul_file)
-		self.Openvision_ul = NoSave(ConfigSelection(default=current, choices = choices))
+		self.OpenVision_ul = NoSave(ConfigSelection(default=current, choices = choices))
 		# myatile
 		myatile_active = self.getmyAtileState()
-		self.Openvision_active = NoSave(ConfigYesNo(default=myatile_active))
-		self.Openvision_fake_entry = NoSave(ConfigNothing())
+		self.OpenVision_active = NoSave(ConfigYesNo(default=myatile_active))
+		self.OpenVision_fake_entry = NoSave(ConfigNothing())
 
 	def getSettings(self, default_file, user_file):
 		default = ("default", _("Default"))
@@ -356,120 +356,120 @@ class Openvision_Config(Screen, ConfigListScreen):
 
             	#SELECTED Skins folder - We use different folder name (more meaningfull) for selections
             	if path.exists(self.skin_base_dir + "mySkin_off"):
-                	if not path.exists(self.skin_base_dir + "Openvision_Selections"):
+                	if not path.exists(self.skin_base_dir + "OpenVision_Selections"):
                     		chdir(self.skin_base_dir)
                     		try:
-                        		rename("mySkin_off", "Openvision_Selections")
+                        		rename("mySkin_off", "OpenVision_Selections")
                     		except:
                         		pass
 
 	def createConfigList(self):
-		self.set_font = getConfigListEntry(_("Fonts:"), self.Openvision_font)
-		self.set_color = getConfigListEntry(_("Style:"), self.Openvision_color)
-		self.set_sb = getConfigListEntry(_("ColorSelectedBackground:"), self.Openvision_sb)
-		self.set_clock = getConfigListEntry(_("Clock:"), self.Openvision_clock)
-		self.set_infobar = getConfigListEntry(_("Infobar:"), self.Openvision_infobar)
-		self.set_background = getConfigListEntry(_("Background:"), self.Openvision_background)
-		self.set_sib = getConfigListEntry(_("Secondinfobar:"), self.Openvision_sib)
-		self.set_ch_se = getConfigListEntry(_("Channelselection:"), self.Openvision_ch_se)
-		self.set_ev = getConfigListEntry(_("Eventview:"), self.Openvision_ev)
-		self.set_emcsel = getConfigListEntry(_("EMC_Selection:"), self.Openvision_emcsel)
-		self.set_movsel = getConfigListEntry(_("Movie_Selection:"), self.Openvision_movsel)
-		self.set_ul = getConfigListEntry(_("Userlogo:"), self.Openvision_ul)
-		self.set_myatile = getConfigListEntry(_("Enable %s pro:") % cur_skin, self.Openvision_active)
+		self.set_font = getConfigListEntry(_("Fonts:"), self.OpenVision_font)
+		self.set_color = getConfigListEntry(_("Style:"), self.OpenVision_color)
+		self.set_sb = getConfigListEntry(_("ColorSelectedBackground:"), self.OpenVision_sb)
+		self.set_clock = getConfigListEntry(_("Clock:"), self.OpenVision_clock)
+		self.set_infobar = getConfigListEntry(_("Infobar:"), self.OpenVision_infobar)
+		self.set_background = getConfigListEntry(_("Background:"), self.OpenVision_background)
+		self.set_sib = getConfigListEntry(_("Secondinfobar:"), self.OpenVision_sib)
+		self.set_ch_se = getConfigListEntry(_("Channelselection:"), self.OpenVision_ch_se)
+		self.set_ev = getConfigListEntry(_("Eventview:"), self.OpenVision_ev)
+		self.set_emcsel = getConfigListEntry(_("EMC_Selection:"), self.OpenVision_emcsel)
+		self.set_movsel = getConfigListEntry(_("Movie_Selection:"), self.OpenVision_movsel)
+		self.set_ul = getConfigListEntry(_("Userlogo:"), self.OpenVision_ul)
+		self.set_myatile = getConfigListEntry(_("Enable %s pro:") % cur_skin, self.OpenVision_active)
 		self.set_new_skin = getConfigListEntry(_("Change skin"), ConfigNothing())
 		self.find_woeid = getConfigListEntry(_("Search weather location ID"), ConfigNothing())
         	self.LackOfFile = ''
 		self.list = []
 		self.list.append(self.set_myatile)
-		if len(self.Openvision_font.choices)>1:
+		if len(self.OpenVision_font.choices)>1:
 			self.list.append(self.set_font)
-		if len(self.Openvision_color.choices)>1:
+		if len(self.OpenVision_color.choices)>1:
 			self.list.append(self.set_color)
-		if len(self.Openvision_sb.choices)>1:
+		if len(self.OpenVision_sb.choices)>1:
 			self.list.append(self.set_sb)
-		if len(self.Openvision_clock.choices)>1:
+		if len(self.OpenVision_clock.choices)>1:
 			self.list.append(self.set_clock)
-		if len(self.Openvision_infobar.choices)>1:
+		if len(self.OpenVision_infobar.choices)>1:
 			self.list.append(self.set_infobar)
-		if len(self.Openvision_background.choices)>1:
+		if len(self.OpenVision_background.choices)>1:
 			self.list.append(self.set_background)
-		if len(self.Openvision_sib.choices)>1:
+		if len(self.OpenVision_sib.choices)>1:
 			self.list.append(self.set_sib)
-		if len(self.Openvision_ch_se.choices)>1:
+		if len(self.OpenVision_ch_se.choices)>1:
 			self.list.append(self.set_ch_se)
-		if len(self.Openvision_ev.choices)>1:
+		if len(self.OpenVision_ev.choices)>1:
 			self.list.append(self.set_ev)
-		if len(self.Openvision_emcsel.choices)>1:
+		if len(self.OpenVision_emcsel.choices)>1:
 			self.list.append(self.set_emcsel)
-		if len(self.Openvision_movsel.choices)>1:
+		if len(self.OpenVision_movsel.choices)>1:
 			self.list.append(self.set_movsel)
-		if len(self.Openvision_ul.choices)>1:
+		if len(self.OpenVision_ul.choices)>1:
 			self.list.append(self.set_ul)
 		self.list.append(self.set_new_skin)
 		self["config"].list = self.list
 		self["config"].l.setList(self.list)
-		if self.Openvision_active.value:
+		if self.OpenVision_active.value:
 			self["key_yellow"].setText("%s pro" % cur_skin)
 		else:
 			self["key_yellow"].setText("")
 
 	def changedEntry(self):
 		if self["config"].getCurrent() == self.set_font:
-			self.setPicture(self.Openvision_font.value)
+			self.setPicture(self.OpenVision_font.value)
 		elif self["config"].getCurrent() == self.set_color:
-			self.setPicture(self.Openvision_color.value)
+			self.setPicture(self.OpenVision_color.value)
 		elif self["config"].getCurrent() == self.set_sb:
-			self.setPicture(self.Openvision_sb.value)
+			self.setPicture(self.OpenVision_sb.value)
 		elif self["config"].getCurrent() == self.set_clock:
-			self.setPicture(self.Openvision_clock.value)
+			self.setPicture(self.OpenVision_clock.value)
 		elif self["config"].getCurrent() == self.set_infobar:
-			self.setPicture(self.Openvision_infobar.value)
+			self.setPicture(self.OpenVision_infobar.value)
 		elif self["config"].getCurrent() == self.set_background:
-			self.setPicture(self.Openvision_background.value)	
+			self.setPicture(self.OpenVision_background.value)	
 		elif self["config"].getCurrent() == self.set_sib:
-			self.setPicture(self.Openvision_sib.value)
+			self.setPicture(self.OpenVision_sib.value)
 		elif self["config"].getCurrent() == self.set_ch_se:
-			self.setPicture(self.Openvision_ch_se.value)
+			self.setPicture(self.OpenVision_ch_se.value)
 		elif self["config"].getCurrent() == self.set_ev:
-			self.setPicture(self.Openvision_ev.value)
+			self.setPicture(self.OpenVision_ev.value)
 		elif self["config"].getCurrent() == self.set_emcsel:
-			self.setPicture(self.Openvision_emcsel.value)
+			self.setPicture(self.OpenVision_emcsel.value)
 		elif self["config"].getCurrent() == self.set_movsel:
-			self.setPicture(self.Openvision_movsel.value)
+			self.setPicture(self.OpenVision_movsel.value)
 		elif self["config"].getCurrent() == self.set_ul:
-			self.setPicture(self.Openvision_ul.value)
+			self.setPicture(self.OpenVision_ul.value)
 		elif self["config"].getCurrent() == self.set_myatile:
-			if self.Openvision_active.value:
+			if self.OpenVision_active.value:
 				self["key_yellow"].setText("%s pro" % cur_skin)
 			else:
 				self["key_yellow"].setText("")
 
 	def selectionChanged(self):
 		if self["config"].getCurrent() == self.set_font:
-			self.setPicture(self.Openvision_font.value)
+			self.setPicture(self.OpenVision_font.value)
 		if self["config"].getCurrent() == self.set_color:
-			self.setPicture(self.Openvision_color.value)
+			self.setPicture(self.OpenVision_color.value)
 		elif self["config"].getCurrent() == self.set_sb:
-			self.setPicture(self.Openvision_sb.value)
+			self.setPicture(self.OpenVision_sb.value)
 		elif self["config"].getCurrent() == self.set_clock:
-			self.setPicture(self.Openvision_clock.value)
+			self.setPicture(self.OpenVision_clock.value)
 		elif self["config"].getCurrent() == self.set_infobar:
-			self.setPicture(self.Openvision_infobar.value)
+			self.setPicture(self.OpenVision_infobar.value)
 		elif self["config"].getCurrent() == self.set_background:
-			self.setPicture(self.Openvision_background.value)
+			self.setPicture(self.OpenVision_background.value)
 		elif self["config"].getCurrent() == self.set_sib:
-			self.setPicture(self.Openvision_sib.value)
+			self.setPicture(self.OpenVision_sib.value)
 		elif self["config"].getCurrent() == self.set_ch_se:
-			self.setPicture(self.Openvision_ch_se.value)
+			self.setPicture(self.OpenVision_ch_se.value)
 		elif self["config"].getCurrent() == self.set_ev:
-			self.setPicture(self.Openvision_ev.value)
+			self.setPicture(self.OpenVision_ev.value)
 		elif self["config"].getCurrent() == self.set_emcsel:
-			self.setPicture(self.Openvision_emcsel.value)
+			self.setPicture(self.OpenVision_emcsel.value)
 		elif self["config"].getCurrent() == self.set_movsel:
-			self.setPicture(self.Openvision_movsel.value)
+			self.setPicture(self.OpenVision_movsel.value)
 		elif self["config"].getCurrent() == self.set_ul:
-			self.setPicture(self.Openvision_ul.value)
+			self.setPicture(self.OpenVision_ul.value)
 		else:
 			self["Picture"].hide()
 
@@ -510,8 +510,8 @@ class Openvision_Config(Screen, ConfigListScreen):
 			self["Picture"].hide()
 
 	def keyYellow(self):
-		if self.Openvision_active.value:
-			self.session.openWithCallback(self.OpenvisionScreenCB, OpenvisionScreens)
+		if self.OpenVision_active.value:
+			self.session.openWithCallback(self.OpenVisionScreenCB, OpenVisionScreens)
 		else:
 			self["config"].setCurrentIndex(0)
 
@@ -548,7 +548,7 @@ class Openvision_Config(Screen, ConfigListScreen):
 	def select_weather_id_callback(self, res):
 		if res and isInteger(res):
 			print res
-			config.plugins.Openvision.woeid.value = int(res)
+			config.plugins.OpenVision.woeid.value = int(res)
 
 	def skinChanged(self, ret = None):
 		global cur_skin
@@ -566,34 +566,34 @@ class Openvision_Config(Screen, ConfigListScreen):
 			chdir(self.skin_base_dir)
 
 			# font
-			self.makeSettings(self.Openvision_font, self.font_file)
+			self.makeSettings(self.OpenVision_font, self.font_file)
 			# color
-			self.makeSettings(self.Openvision_color, self.color_file)
+			self.makeSettings(self.OpenVision_color, self.color_file)
 			# sb
-			self.makeSettings(self.Openvision_sb, self.sb_file)
+			self.makeSettings(self.OpenVision_sb, self.sb_file)
 			# clock
-			self.makeSettings(self.Openvision_clock, self.clock_file)
+			self.makeSettings(self.OpenVision_clock, self.clock_file)
 			# infobar
-			self.makeSettings(self.Openvision_infobar, self.infobar_file)
+			self.makeSettings(self.OpenVision_infobar, self.infobar_file)
 			# background
-			self.makeSettings(self.Openvision_background, self.background_file)
+			self.makeSettings(self.OpenVision_background, self.background_file)
 			# sib
-			self.makeSettings(self.Openvision_sib, self.sib_file)
+			self.makeSettings(self.OpenVision_sib, self.sib_file)
 			# ch_se
-			self.makeSettings(self.Openvision_ch_se, self.ch_se_file)
+			self.makeSettings(self.OpenVision_ch_se, self.ch_se_file)
 			# ev
-			self.makeSettings(self.Openvision_ev, self.ev_file)
+			self.makeSettings(self.OpenVision_ev, self.ev_file)
 			# emcsel
-			self.makeSettings(self.Openvision_emcsel, self.emcsel_file)
+			self.makeSettings(self.OpenVision_emcsel, self.emcsel_file)
 			# movsel
-			self.makeSettings(self.Openvision_movsel, self.movsel_file)
+			self.makeSettings(self.OpenVision_movsel, self.movsel_file)
 			# ul
-			self.makeSettings(self.Openvision_ul, self.ul_file)
+			self.makeSettings(self.OpenVision_ul, self.ul_file)
             		#Pro SCREENS
 			if not path.exists("mySkin_off"):
 				mkdir("mySkin_off")
 				cprint("makedir mySkin_off")
-			if self.Openvision_active.value:
+			if self.OpenVision_active.value:
 				if not path.exists("mySkin") and path.exists("mySkin_off"):
 						symlink("mySkin_off","mySkin")
 			else:
@@ -625,7 +625,7 @@ class Openvision_Config(Screen, ConfigListScreen):
 		if config_entry.value != 'default':
 			symlink(config_entry.value, user_file)
 
-	def OpenvisionScreenCB(self):
+	def OpenVisionScreenCB(self):
 		self.changed_screens = True
 		self["config"].setCurrentIndex(0)
 
@@ -639,7 +639,7 @@ class Openvision_Config(Screen, ConfigListScreen):
 		restartbox.setTitle(_("Message"))
 
 	def about(self):
-		self.session.open(Openvision_About)
+		self.session.open(OpenVision_About)
 
 	def restartGUIcb(self, answer):
 		if answer is True:
@@ -652,7 +652,7 @@ class Openvision_Config(Screen, ConfigListScreen):
         	user_skin_file=resolveFilename(SCOPE_CONFIG, 'skin_user_' + cur_skin + '.xml')
         	if path.exists(user_skin_file):
             		remove(user_skin_file)
-            	cprint("update_user_skin.self.Openvision_active.value")
+            	cprint("update_user_skin.self.OpenVision_active.value")
             	user_skin = ""
             	if path.exists(self.skin_base_dir + self.font_file):
                 	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.font_file , 'ALLSECTIONS')
@@ -683,7 +683,7 @@ class Openvision_Config(Screen, ConfigListScreen):
                 	user_skin = "<skin>\n" + user_skin
                 	user_skin = user_skin + "</skin>\n"
                 	with open (user_skin_file, "w") as myFile:
-                    		cprint("update_user_skin.self.Openvision_active.value write myFile")
+                    		cprint("update_user_skin.self.OpenVision_active.value write myFile")
                     		myFile.write(user_skin)
                     		myFile.flush()
                     		myFile.close()
@@ -743,7 +743,7 @@ class Openvision_Config(Screen, ConfigListScreen):
             		myFile.close()
         	return filecontent
 
-class Openvision_About(Screen):
+class OpenVision_About(Screen):
 
 	def __init__(self, session, args = 0):
 		self.session = session
@@ -760,10 +760,10 @@ class Openvision_About(Screen):
 	def cancel(self):
 		self.close()
 
-class OpenvisionScreens(Screen):
+class OpenVisionScreens(Screen):
 	if reswidth == 1920:
 		skin = """
-			<screen name="OpenvisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="Multibox Setup">
+			<screen name="OpenVisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="Multibox Setup">
   				<eLabel text="Configure Skin" position="180,20" size="1300,50" font="Regular;40" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1"/>
   				<widget source="menu" render="Listbox" position="10,100" size="1180,880" scrollbarMode="showOnDemand" scrollbarWidth="9" enableWrapAround="1" transparent="1">
 					<convert type="TemplatedMultiContent">
@@ -798,7 +798,7 @@ class OpenvisionScreens(Screen):
 		"""
 	else:
 		skin = """
-			<screen name="OpenvisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="Multibox Setup">
+			<screen name="OpenVisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="Multibox Setup">
   				<eLabel text="Configure Skin" position="40,5" size="507,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="Multiboxlabel" borderWidth="3" transparent="1" zPosition="1"/>
   				<widget source="menu" render="Listbox" position="25,58" size="775,594" scrollbarMode="showOnDemand" scrollbarWidth="9" enableWrapAround="1" transparent="1">
       					<convert type="TemplatedMultiContent">
