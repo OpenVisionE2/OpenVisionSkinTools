@@ -130,7 +130,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
   				<eLabel text="/ Save" position="380,1000" size="160,70" font="Regular;35" halign="center" backgroundColor="#80000000" transparent="1" valign="center"/>
   				<eLabel text="Yellow button Press to select the skin parts" position="92,900" size="1020,45" font="Regular;36" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default"/>
   				<widget name="Picture" position="1265,630" size="612,344" alphatest="on"/>
-  				<ePixmap pixmap="OpenVisionSkinTools/buttons/key_menu.png" position="50,823" size="103,35" zPosition="10" transparent="1"/>
+  				<ePixmap pixmap="~/pic/key_menu.png" position="50,823" size="103,35" zPosition="10" transparent="1"/>
   				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="170,820" size="1090,45" font="Regular;36" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default" zPosition="2"/>
   				<eLabel position="23,1073" size="290,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="280,1073" size="290,5" zPosition="-10" backgroundColor="#0000ff00"/>
@@ -161,7 +161,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
   				<eLabel text="/ Save" position="297,680" size="160,35" font="Regular;25" halign="center" backgroundColor="#80000000" transparent="1" valign="center"/>
   				<eLabel text="Yellow button Press to select the skin parts" position="17,627" size="668,29" font="Regular;25" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default"/>
   				<widget name="Picture" position="809,437" size="452,237" alphatest="on"/>
-  				<ePixmap pixmap="OpenVisionSkinTools/buttons/key_menu.png" position="20,583" size="103,35" zPosition="10" transparent="1"/>
+  				<ePixmap pixmap="~/pic/key_menu.png" position="20,583" size="103,35" zPosition="10" transparent="1"/>
   				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="125,587" size="559,25" font="Regular;25" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default" zPosition="2"/>
   				<eLabel position="2,715" size="230,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="235,715" size="230,5" zPosition="-10" backgroundColor="#0000ff00"/>
@@ -188,7 +188,8 @@ class OpenVision_Config(Screen, ConfigListScreen):
 		self.skin_lines = []
 		self.changed_screens = False
 		Screen.__init__(self, session)
-		
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/OpenVisonSkinTools")
+
 		self.start_skin = config.skin.primary_skin.value
 		
 		if self.start_skin != "skin.xml":
