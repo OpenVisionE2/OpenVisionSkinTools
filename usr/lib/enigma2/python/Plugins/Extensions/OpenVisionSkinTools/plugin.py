@@ -7,10 +7,8 @@
 #This means you also have to distribute
 #source code of your modifications.
 
-
 # for localized messages
 from __init__ import _
-
 from enigma import eTimer, getDesktop
 from Components.ActionMap import ActionMap
 from Components.config import *
@@ -29,9 +27,6 @@ from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
 from Tools.LoadPixmap import LoadPixmap
 from Tools.WeatherID import get_woeid_from_yahoo
-from Tools import Notifications
-from Tools.Notifications import AddPopup
-import gettext
 from os import listdir, remove, rename, system, path, symlink, chdir, makedirs, mkdir
 import shutil
 import re
