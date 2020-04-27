@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 #This plugin is free software, you are allowed to
 #modify it (if you keep the license),
@@ -47,7 +48,7 @@ REDC =  '\033[31m'
 ENDC = '\033[m'                                                                 
                                                                                 
 def cprint(text):                                                               
-        print REDC+text+ENDC 
+        print(REDC+text+ENDC )
 
 def Plugins(**kwargs):
     	return [PluginDescriptor(name=_("OpenVision Skin Tools"), description=_("OpenVision Skin Tools"), where = PluginDescriptor.WHERE_MENU, fnc=menu)]
@@ -103,7 +104,7 @@ class WeatherLocationChoiceList(Screen):
 
 	def createChoiceList(self):
 		list = []
-		print self.location_list
+		print(self.location_list)
 		for x in self.location_list:
 			list.append((str(x[1]), str(x[0])))
 		self["choicelist"].l.setList(list)
@@ -543,7 +544,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 
 	def select_weather_id_callback(self, res):
 		if res and isInteger(res):
-			print res
+			print(res)
 			config.plugins.OpenVision.woeid.value = int(res)
 
 	def skinChanged(self, ret = None):
@@ -700,7 +701,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
         	r=list(set(r)) #remove duplicates, no need to check for the same component several times
 
         	cprint("Found %s:\n" % (look4Component))
-        	print r
+        	print(r)
         	if r:
             		for myComponent in set(r):
                 		if look4Component == 'pixmap':
