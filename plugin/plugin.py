@@ -310,7 +310,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 
 	def getSettings(self, default_file, user_file):
 		default = ("default", _("Default"))
-		styp = default_file.replace('_Original.xml','')
+		styp = default_file.replace('_Original.xml', '')
 		search_str = '%s_' %styp
 
 		# possible setting
@@ -321,8 +321,8 @@ class OpenVision_Config(Screen, ConfigListScreen):
 		for f in sorted(files, key=str.lower):
 			if f.endswith('.xml') and f.startswith(search_str):
 				friendly_name = f.replace(search_str, "").replace(".xml", "").replace("_", " ")
-				if path.exists(self.skin_base_dir + 'allScreens/%s/%s' %(styp,f)):
-					choices.append((self.skin_base_dir + 'allScreens/%s/%s' %(styp,f), friendly_name))
+				if path.exists(self.skin_base_dir + 'allScreens/%s/%s' %(styp, f)):
+					choices.append((self.skin_base_dir + 'allScreens/%s/%s' %(styp, f), friendly_name))
 				else:
 					choices.append((self.skin_base_dir + f, friendly_name))
 		choices.append(default)
@@ -593,7 +593,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 				cprint("makedir mySkin_off")
 			if self.OpenVision_active.value:
 				if not path.exists("mySkin") and path.exists("mySkin_off"):
-						symlink("mySkin_off","mySkin")
+						symlink("mySkin_off", "mySkin")
 			else:
 				if path.exists("mySkin"):
 					if path.exists("mySkin_off"):
@@ -633,7 +633,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		cprint("missing components: %s" % self.LackOfFile)
             		myMessage += _("Missing components found: %s\n\n") % self.LackOfFile
             		myMessage += _("Skin will NOT work properly!!!\n\n")
-		restartbox = self.session.openWithCallback(self.restartGUIcb,MessageBox,_("Restart necessary, restart GUI now?"), MessageBox.TYPE_YESNO)
+		restartbox = self.session.openWithCallback(self.restartGUIcb, MessageBox, _("Restart necessary, restart GUI now?"), MessageBox.TYPE_YESNO)
 		restartbox.setTitle(_("Message"))
 
 	def about(self):
@@ -653,27 +653,27 @@ class OpenVision_Config(Screen, ConfigListScreen):
             	cprint("update_user_skin.self.OpenVision_active.value")
             	user_skin = ""
             	if path.exists(self.skin_base_dir + self.font_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.font_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.font_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.color_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.color_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.color_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.sb_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.sb_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.sb_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.clock_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.clock_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.clock_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.infobar_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.infobar_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.infobar_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.background_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.background_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.background_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.sib_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.sib_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.sib_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.ch_se_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ch_se_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ch_se_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.ev_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ev_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ev_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.emcsel_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.emcsel_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.emcsel_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + self.ul_file):
-                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ul_file , 'ALLSECTIONS')
+                	user_skin = user_skin + self.readXMLfile(self.skin_base_dir + self.ul_file, 'ALLSECTIONS')
             	if path.exists(self.skin_base_dir + 'mySkin'):
                 	for f in listdir(self.skin_base_dir + "mySkin/"):
                     		user_skin = user_skin + self.readXMLfile(self.skin_base_dir + "mySkin/" + f, 'screen')
@@ -686,11 +686,11 @@ class OpenVision_Config(Screen, ConfigListScreen):
                     		myFile.flush()
                     		myFile.close()
             	#checking if all renderers converters are in system
-            	self.checkComponent(user_skin, 'render' , resolveFilename(SCOPE_PLUGINS, '../Components/Renderer/') )
-            	self.checkComponent(user_skin, 'Convert' , resolveFilename(SCOPE_PLUGINS, '../Components/Converter/') )
-            	self.checkComponent(user_skin, 'pixmap' , resolveFilename(SCOPE_SKIN, '') )
+            	self.checkComponent(user_skin, 'render', resolveFilename(SCOPE_PLUGINS, '../Components/Renderer/') )
+            	self.checkComponent(user_skin, 'Convert', resolveFilename(SCOPE_PLUGINS, '../Components/Converter/') )
+            	self.checkComponent(user_skin, 'pixmap', resolveFilename(SCOPE_SKIN, '') )
                
-    	def checkComponent(self, myContent, look4Component , myPath): #look4Component=render|
+    	def checkComponent(self, myContent, look4Component, myPath): #look4Component=render|
         	def updateLackOfFile(name, mySeparator =', '):
             		cprint("Missing component found:%s\n" % name)
             		if self.LackOfFile == '':
@@ -698,7 +698,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		else:
                 		self.LackOfFile += mySeparator + name
             
-        	r=re.findall( r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component , myContent )
+        	r=re.findall( r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent )
         	r=list(set(r)) #remove duplicates, no need to check for the same component several times
 
         	cprint("Found %s:\n" % (look4Component))
