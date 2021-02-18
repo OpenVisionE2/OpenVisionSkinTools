@@ -45,11 +45,11 @@ config.plugins.OpenVision.tempUnit = ConfigSelection(default="Celsius", choices=
 				("Fahrenheit", _("Fahrenheit"))
 				])
 
-REDC = '\033[31m'                                                              
-ENDC = '\033[m'                                                                 
-                                                                                
+REDC = '\033[31m'
+ENDC = '\033[m'
 
-def cprint(text):                                                               
+
+def cprint(text):
         print(REDC + text + ENDC)
 
 
@@ -67,10 +67,10 @@ def menu(menuid, **kwargs):
 def main(session, **kwargs):
     cprint("Opening Menu ...")
     session.open(OpenVision_Config)
-			
+
 
 def isInteger(s):
-	try: 
+	try:
 		int(s)
 		return True
 	except ValueError:
@@ -199,10 +199,10 @@ class OpenVision_Config(Screen, ConfigListScreen):
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/OpenVisonSkinTools")
 
 		self.start_skin = config.skin.primary_skin.value
-		
+
 		if self.start_skin != "skin.xml":
 			self.getInitConfig()
-		
+
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
@@ -220,9 +220,9 @@ class OpenVision_Config(Screen, ConfigListScreen):
 				"ok": self.keyOk,
 				"menu": self.setWeather,
 			}, -2)
-			
+
 		self["Picture"] = Pixmap()
-		
+
 		if not self.selectionChanged in self["config"].onSelectionChanged:
 			self["config"].onSelectionChanged.append(self.selectionChanged)
 		self.createConfigList()
@@ -430,7 +430,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 		elif self["config"].getCurrent() == self.set_infobar:
 			self.setPicture(self.OpenVision_infobar.value)
 		elif self["config"].getCurrent() == self.set_background:
-			self.setPicture(self.OpenVision_background.value)	
+			self.setPicture(self.OpenVision_background.value)
 		elif self["config"].getCurrent() == self.set_sib:
 			self.setPicture(self.OpenVision_sib.value)
 		elif self["config"].getCurrent() == self.set_ch_se:
@@ -695,7 +695,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             	self.checkComponent(user_skin, 'render', resolveFilename(SCOPE_PLUGINS, '../Components/Renderer/'))
             	self.checkComponent(user_skin, 'Convert', resolveFilename(SCOPE_PLUGINS, '../Components/Converter/'))
             	self.checkComponent(user_skin, 'pixmap', resolveFilename(SCOPE_SKIN, ''))
-               
+
     	def checkComponent(self, myContent, look4Component, myPath): #look4Component=render|
         	def updateLackOfFile(name, mySeparator=', '):
             		cprint("Missing component found:%s\n" % name)
@@ -703,7 +703,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
                 		self.LackOfFile = name
             		else:
                 		self.LackOfFile += mySeparator + name
-            
+
         	r = re.findall(r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent)
         	r = list(set(r)) #remove duplicates, no need to check for the same component several times
 
@@ -722,7 +722,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
                     			if not path.exists(myPath + myComponent + ".pyo") and not path.exists(myPath + myComponent + ".py"):
                         			updateLackOfFile(myComponent)
         	return
-    
+
     	def readXMLfile(self, XMLfilename, XMLsection): #sections:ALLSECTIONS|fonts|
         	myPath = path.realpath(XMLfilename)
         	if not path.exists(myPath):
@@ -841,23 +841,23 @@ class OpenVisionScreens(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.session = session
-		
+
 		global cur_skin
-		
+
 		self.title = _("%s additional screens") % cur_skin
 		try:
 			self["title"] = StaticText(self.title)
 		except:
 			cprint("self['title'] was not found in skin")
-		
+
 		self["key_red"] = StaticText(_("Exit"))
 		self["key_green"] = StaticText(_("on"))
-		
+
 		self["Picture"] = Pixmap()
-		
+
 		menu_list = []
 		self["menu"] = List(menu_list)
-		
+
 		self["shortcuts"] = ActionMap(["SetupActions", "ColorActions", "DirectionActions"],
 		{
 			"ok": self.runMenuEntry,
@@ -865,7 +865,7 @@ class OpenVisionScreens(Screen):
 			"red": self.keyCancel,
 			"green": self.runMenuEntry,
 		}, -2)
-		
+
 		self.skin_base_dir = "/usr/share/enigma2/%s/" % cur_skin
 		self.screen_dir = "allScreens"
 		self.skinparts_dir = "skinparts"
@@ -878,10 +878,10 @@ class OpenVisionScreens(Screen):
 		if not path.exists(my_path):
 			my_path = resolveFilename(SCOPE_SKIN, "skin_default/icons/lock_off.png")
 		self.disabled_pic = LoadPixmap(cached=True, path=my_path)
-		
+
 		if not self.selectionChanged in self["menu"].onSelectionChanged:
 			self["menu"].onSelectionChanged.append(self.selectionChanged)
-		
+
 		self.onLayoutFinish.append(self.createMenuList)
 
 	def selectionChanged(self):
@@ -950,7 +950,7 @@ class OpenVisionScreens(Screen):
 			self["Picture"].show()
 		else:
 			self["Picture"].hide()
-	
+
 	def keyCancel(self):
 		self.close()
 
