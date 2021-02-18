@@ -45,11 +45,11 @@ config.plugins.OpenVision.tempUnit = ConfigSelection(default="Celsius", choices=
 				("Fahrenheit", _("Fahrenheit"))
 				])
 
-REDC =  '\033[31m'                                                              
+REDC = '\033[31m'                                                              
 ENDC = '\033[m'                                                                 
                                                                                 
 def cprint(text):                                                               
-        print(REDC+text+ENDC)
+        print(REDC + text + ENDC)
 
 def Plugins(**kwargs):
     	return [PluginDescriptor(name=_("OpenVision Skin Tools"), description=_("OpenVision Skin Tools"), where=PluginDescriptor.WHERE_MENU, fnc=menu)]
@@ -311,18 +311,18 @@ class OpenVision_Config(Screen, ConfigListScreen):
 	def getSettings(self, default_file, user_file):
 		default = ("default", _("Default"))
 		styp = default_file.replace('_Original.xml', '')
-		search_str = '%s_' %styp
+		search_str = '%s_' % styp
 
 		# possible setting
 		choices = []
 		files = listdir(self.skin_base_dir)
-		if path.exists(self.skin_base_dir + 'allScreens/%s/' %styp):
-			files += listdir(self.skin_base_dir + 'allScreens/%s/' %styp)
+		if path.exists(self.skin_base_dir + 'allScreens/%s/' % styp):
+			files += listdir(self.skin_base_dir + 'allScreens/%s/' % styp)
 		for f in sorted(files, key=str.lower):
 			if f.endswith('.xml') and f.startswith(search_str):
 				friendly_name = f.replace(search_str, "").replace(".xml", "").replace("_", " ")
-				if path.exists(self.skin_base_dir + 'allScreens/%s/%s' %(styp, f)):
-					choices.append((self.skin_base_dir + 'allScreens/%s/%s' %(styp, f), friendly_name))
+				if path.exists(self.skin_base_dir + 'allScreens/%s/%s' % (styp, f)):
+					choices.append((self.skin_base_dir + 'allScreens/%s/%s' % (styp, f), friendly_name))
 				else:
 					choices.append((self.skin_base_dir + f, friendly_name))
 		choices.append(default)
@@ -336,11 +336,11 @@ class OpenVision_Config(Screen, ConfigListScreen):
 					remove(myfile)
 				chdir(self.skin_base_dir)
 				symlink(default_file, user_file)
-			elif path.exists(self.skin_base_dir + 'allScreens/%s/%s' %(styp, default_file)):
+			elif path.exists(self.skin_base_dir + 'allScreens/%s/%s' % (styp, default_file)):
 				if path.islink(myfile):
 					remove(myfile)
 				chdir(self.skin_base_dir)
-				symlink(self.skin_base_dir + 'allScreens/%s/%s' %(styp, default_file), user_file)
+				symlink(self.skin_base_dir + 'allScreens/%s/%s' % (styp, default_file), user_file)
 			else:
 				current = None
 		if current is None:
@@ -380,29 +380,29 @@ class OpenVision_Config(Screen, ConfigListScreen):
         	self.LackOfFile = ''
 		self.list = []
 		self.list.append(self.set_myatile)
-		if len(self.OpenVision_font.choices)>1:
+		if len(self.OpenVision_font.choices) > 1:
 			self.list.append(self.set_font)
-		if len(self.OpenVision_color.choices)>1:
+		if len(self.OpenVision_color.choices) > 1:
 			self.list.append(self.set_color)
-		if len(self.OpenVision_sb.choices)>1:
+		if len(self.OpenVision_sb.choices) > 1:
 			self.list.append(self.set_sb)
-		if len(self.OpenVision_clock.choices)>1:
+		if len(self.OpenVision_clock.choices) > 1:
 			self.list.append(self.set_clock)
-		if len(self.OpenVision_infobar.choices)>1:
+		if len(self.OpenVision_infobar.choices) > 1:
 			self.list.append(self.set_infobar)
-		if len(self.OpenVision_background.choices)>1:
+		if len(self.OpenVision_background.choices) > 1:
 			self.list.append(self.set_background)
-		if len(self.OpenVision_sib.choices)>1:
+		if len(self.OpenVision_sib.choices) > 1:
 			self.list.append(self.set_sib)
-		if len(self.OpenVision_ch_se.choices)>1:
+		if len(self.OpenVision_ch_se.choices) > 1:
 			self.list.append(self.set_ch_se)
-		if len(self.OpenVision_ev.choices)>1:
+		if len(self.OpenVision_ev.choices) > 1:
 			self.list.append(self.set_ev)
-		if len(self.OpenVision_emcsel.choices)>1:
+		if len(self.OpenVision_emcsel.choices) > 1:
 			self.list.append(self.set_emcsel)
-		if len(self.OpenVision_movsel.choices)>1:
+		if len(self.OpenVision_movsel.choices) > 1:
 			self.list.append(self.set_movsel)
-		if len(self.OpenVision_ul.choices)>1:
+		if len(self.OpenVision_ul.choices) > 1:
 			self.list.append(self.set_ul)
 		self.list.append(self.set_new_skin)
 		self["config"].list = self.list
@@ -514,7 +514,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 			self["config"].setCurrentIndex(0)
 
 	def keyOk(self):
-		sel =  self["config"].getCurrent()
+		sel = self["config"].getCurrent()
 		if sel is not None and sel == self.set_new_skin:
 			self.openSkinSelector()
 		elif sel is not None and sel == self.find_woeid:
@@ -605,7 +605,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 						rename("mySkin", "mySkin_off")
             		self.update_user_skin()
 			self.restartGUI()
-		elif  config.skin.primary_skin.value != self.start_skin:
+		elif config.skin.primary_skin.value != self.start_skin:
             		self.update_user_skin()
 			self.restartGUI()
 		else:
@@ -647,7 +647,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
 
     	def update_user_skin(self):
 		global cur_skin
-        	user_skin_file=resolveFilename(SCOPE_CONFIG, 'skin_user_' + cur_skin + '.xml')
+        	user_skin_file = resolveFilename(SCOPE_CONFIG, 'skin_user_' + cur_skin + '.xml')
         	if path.exists(user_skin_file):
             		remove(user_skin_file)
             	cprint("update_user_skin.self.OpenVision_active.value")
@@ -698,8 +698,8 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		else:
                 		self.LackOfFile += mySeparator + name
             
-        	r=re.findall(r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent)
-        	r=list(set(r)) #remove duplicates, no need to check for the same component several times
+        	r = re.findall(r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent)
+        	r = list(set(r)) #remove duplicates, no need to check for the same component several times
 
         	cprint("Found %s:\n" % (look4Component))
         	print(r)
@@ -718,7 +718,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
         	return
     
     	def readXMLfile(self, XMLfilename, XMLsection): #sections:ALLSECTIONS|fonts|
-        	myPath=path.realpath(XMLfilename)
+        	myPath = path.realpath(XMLfilename)
         	if not path.exists(myPath):
             		remove(XMLfilename)
             		return ''
@@ -731,9 +731,9 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		for line in myFile:
                 		if line.find('<skin>') >= 0 or line.find('</skin>') >= 0:
                     			continue
-                		if line.find('<%s' %XMLsection) >= 0 and sectionmarker == False:
+                		if line.find('<%s' % XMLsection) >= 0 and sectionmarker == False:
                     			sectionmarker = True
-                		elif line.find('</%s>' %XMLsection) >= 0 and sectionmarker == True:
+                		elif line.find('</%s>' % XMLsection) >= 0 and sectionmarker == True:
                     			sectionmarker = False
                     			filecontent = filecontent + line
                 		if sectionmarker == True:
@@ -838,7 +838,7 @@ class OpenVisionScreens(Screen):
 		
 		self.title = _("%s additional screens") % cur_skin
 		try:
-			self["title"]=StaticText(self.title)
+			self["title"] = StaticText(self.title)
 		except:
 			cprint("self['title'] was not found in skin")
 		
