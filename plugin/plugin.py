@@ -48,11 +48,14 @@ config.plugins.OpenVision.tempUnit = ConfigSelection(default="Celsius", choices=
 REDC = '\033[31m'                                                              
 ENDC = '\033[m'                                                                 
                                                                                 
+
 def cprint(text):                                                               
         print(REDC + text + ENDC)
 
+
 def Plugins(**kwargs):
     	return [PluginDescriptor(name=_("OpenVision Skin Tools"), description=_("OpenVision Skin Tools"), where=PluginDescriptor.WHERE_MENU, fnc=menu)]
+
 
 def menu(menuid, **kwargs):
 	if config.skin.primary_skin.value == "AtileHD/skin.xml" or config.skin.primary_skin.value == "iFlatFHD/skin.xml" or config.skin.primary_skin.value == "Multibox/skin.xml":
@@ -60,16 +63,19 @@ def menu(menuid, **kwargs):
 			return [(_("Setup -") + " " + cur_skin, main, "Menu", 40)]
 	return []
 
+
 def main(session, **kwargs):
     cprint("Opening Menu ...")
     session.open(OpenVision_Config)
 			
+
 def isInteger(s):
 	try: 
 		int(s)
 		return True
 	except ValueError:
 		return False
+
 
 class WeatherLocationChoiceList(Screen):
 	skin = """
@@ -741,6 +747,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		myFile.close()
         	return filecontent
 
+
 class OpenVision_About(Screen):
 
 	def __init__(self, session, args=0):
@@ -757,6 +764,7 @@ class OpenVision_About(Screen):
 
 	def cancel(self):
 		self.close()
+
 
 class OpenVisionScreens(Screen):
 	if reswidth == 1920:
