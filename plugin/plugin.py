@@ -49,7 +49,7 @@ REDC =  '\033[31m'
 ENDC = '\033[m'                                                                 
                                                                                 
 def cprint(text):                                                               
-        print(REDC+text+ENDC )
+        print(REDC+text+ENDC)
 
 def Plugins(**kwargs):
     	return [PluginDescriptor(name=_("OpenVision Skin Tools"), description=_("OpenVision Skin Tools"), where=PluginDescriptor.WHERE_MENU, fnc=menu)]
@@ -680,15 +680,15 @@ class OpenVision_Config(Screen, ConfigListScreen):
             	if user_skin != '':
                 	user_skin = "<skin>\n" + user_skin
                 	user_skin = user_skin + "</skin>\n"
-                	with open (user_skin_file, "w") as myFile:
+                	with open(user_skin_file, "w") as myFile:
                     		cprint("update_user_skin.self.OpenVision_active.value write myFile")
                     		myFile.write(user_skin)
                     		myFile.flush()
                     		myFile.close()
             	#checking if all renderers converters are in system
-            	self.checkComponent(user_skin, 'render', resolveFilename(SCOPE_PLUGINS, '../Components/Renderer/') )
-            	self.checkComponent(user_skin, 'Convert', resolveFilename(SCOPE_PLUGINS, '../Components/Converter/') )
-            	self.checkComponent(user_skin, 'pixmap', resolveFilename(SCOPE_SKIN, '') )
+            	self.checkComponent(user_skin, 'render', resolveFilename(SCOPE_PLUGINS, '../Components/Renderer/'))
+            	self.checkComponent(user_skin, 'Convert', resolveFilename(SCOPE_PLUGINS, '../Components/Converter/'))
+            	self.checkComponent(user_skin, 'pixmap', resolveFilename(SCOPE_SKIN, ''))
                
     	def checkComponent(self, myContent, look4Component, myPath): #look4Component=render|
         	def updateLackOfFile(name, mySeparator=', '):
@@ -698,7 +698,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		else:
                 		self.LackOfFile += mySeparator + name
             
-        	r=re.findall( r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent )
+        	r=re.findall(r' %s="([a-zA-Z0-9_/\.]+)" ' % look4Component, myContent)
         	r=list(set(r)) #remove duplicates, no need to check for the same component several times
 
         	cprint("Found %s:\n" % (look4Component))
@@ -727,7 +727,7 @@ class OpenVision_Config(Screen, ConfigListScreen):
             		sectionmarker = True
         	else:
             		sectionmarker = False
-        	with open (XMLfilename, "r") as myFile:
+        	with open(XMLfilename, "r") as myFile:
             		for line in myFile:
                 		if line.find('<skin>') >= 0 or line.find('</skin>') >= 0:
                     			continue
@@ -928,7 +928,7 @@ class OpenVisionScreens(Screen):
 				else:
 					if path.islink(dir_path + "/" + f):
 						remove(dir_path + "/" + f)
-		menu_list = [ ]
+		menu_list = []
 		for entry in f_list:
 			menu_list.append((entry[0], entry[1], entry[2]))
 		self["menu"].updateList(menu_list)

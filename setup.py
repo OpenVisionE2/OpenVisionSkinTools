@@ -4,7 +4,7 @@ from distutils.core import setup
 import setup_translate
 
 pkg = 'Extensions.OpenVisionSkinTools'
-setup (name='enigma2-plugin-extensions-openvisionskintools',
+setup(name='enigma2-plugin-extensions-openvisionskintools',
        version='1.0',
        description='Tool for changing skin styles',
        packages=[pkg],
