@@ -1,6 +1,4 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 
 #This plugin is free software, you are allowed to
 #modify it (if you keep the license),
