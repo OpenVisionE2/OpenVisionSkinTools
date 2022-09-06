@@ -84,8 +84,8 @@ class WeatherLocationChoiceList(Screen):
 			<eLabel position="350,675" size="290, 5" zPosition="-10" backgroundColor="green" />
 			<eLabel position="645,675" size="290, 5" zPosition="-10" backgroundColor="yellow" />
 			<eLabel position="940,675" size="290, 5" zPosition="-10" backgroundColor="blue" />
-			<widget name="key_red" position="70,635" size="260,25" zPosition="1" font="Regular;20" halign="left" foregroundColor="foreground" transparent="1" />
-			<widget name="key_green" position="365,635" size="260,25" zPosition="1" font="Regular;20" halign="left" foregroundColor="foreground" transparent="1" />
+			<widget name="key_red" position="70,635" size="260,25" zPosition="1" font="Regular;20" horizontalAlignment="left" foregroundColor="foreground" transparent="1" />
+			<widget name="key_green" position="365,635" size="260,25" zPosition="1" font="Regular;20" horizontalAlignment="left" foregroundColor="foreground" transparent="1" />
 		</screen>
 		"""
 
@@ -129,30 +129,30 @@ class OpenVision_Config(Screen, ConfigListScreen):
     if reswidth == 1920:
         skin = """
 			<screen name="OpenVision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="OpenVision Setup">
-  				<eLabel text="Choose yout style" position="18,18" size="1300,50" font="Regular;40" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
-  				<eLabel text="Preview" position="1266,550" size="610,70" font="Regular;40" halign="center" valign="center" foregroundColor="#0000ff00" zPosition="2"/>
-  				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="585,20" size="860,50" font="Regular;35" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1" halign="center"/>
+  				<eLabel text="Choose yout style" position="18,18" size="1300,50" font="Regular;40" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
+  				<eLabel text="Preview" position="1266,550" size="610,70" font="Regular;40" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#0000ff00" zPosition="2"/>
+  				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="585,20" size="860,50" font="Regular;35" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1" horizontalAlignment="center"/>
   				<widget name="config" position="50,130" size="1120,650" font="Regular;36" itemHeight="50" enableWrapAround="1" backgroundColor="#80000000" transparent="1"/>
-  				<eLabel text="/ Save" position="380,1000" size="160,70" font="Regular;35" halign="center" backgroundColor="#80000000" transparent="1" valign="center"/>
-  				<eLabel text="Yellow button Press to select the skin parts" position="92,900" size="1020,45" font="Regular;36" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default"/>
-  				<widget name="Picture" position="1265,630" size="612,344" alphatest="on"/>
+  				<eLabel text="/ Save" position="380,1000" size="160,70" font="Regular;35" horizontalAlignment="center" backgroundColor="#80000000" transparent="1" verticalAlignment="center"/>
+  				<eLabel text="Yellow button Press to select the skin parts" position="92,900" size="1020,45" font="Regular;36" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="default"/>
+  				<widget name="Picture" position="1265,630" size="612,344" alphaTest="on"/>
   				<ePixmap pixmap="~/pic/key_menu.png" position="50,823" size="103,35" zPosition="10" transparent="1"/>
-  				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="170,820" size="1090,45" font="Regular;36" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default" zPosition="2"/>
+  				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="170,820" size="1090,45" font="Regular;36" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="default" zPosition="2"/>
   				<eLabel position="23,1073" size="290,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="280,1073" size="290,5" zPosition="-10" backgroundColor="#0000ff00"/>
   				<eLabel position="640,1073" size="290,5" zPosition="-10" backgroundColor="#00ffff00"/>
   				<eLabel position="92,948" size="290,5" zPosition="-10" backgroundColor="#00ffff00"/>
-  				<widget name="key_red" position="40,1000" size="227,70" zPosition="1" valign="center" font="Regular;35" backgroundColor="#80000000" transparent="1" halign="center"/>
-  				<widget name="key_green" position="334,1000" size="100,70" zPosition="1" valign="center" font="Regular;35" backgroundColor="#80000000" transparent="1"/>
-  				<widget name="key_yellow" position="640,1000" size="290,70" zPosition="1" valign="center" font="Regular;35" backgroundColor="#80000000" transparent="1" halign="center" borderWidth="-1"/>
-  				<widget source="global.CurrentTime" render="Label" position="1322,22" size="585,50" font="Regular;40" halign="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
+  				<widget name="key_red" position="40,1000" size="227,70" zPosition="1" verticalAlignment="center" font="Regular;35" backgroundColor="#80000000" transparent="1" horizontalAlignment="center"/>
+  				<widget name="key_green" position="334,1000" size="100,70" zPosition="1" verticalAlignment="center" font="Regular;35" backgroundColor="#80000000" transparent="1"/>
+  				<widget name="key_yellow" position="640,1000" size="290,70" zPosition="1" verticalAlignment="center" font="Regular;35" backgroundColor="#80000000" transparent="1" horizontalAlignment="center" borderWidth="-1"/>
+  				<widget source="global.CurrentTime" render="Label" position="1322,22" size="585,50" font="Regular;40" horizontalAlignment="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
    					 <convert type="ClockToText">FullDate</convert>
   				</widget>
   				<eLabel backgroundColor="#0066ccff" position="1223,103" size="674,423" zPosition="-15"/>
   				<eLabel backgroundColor="#0066ccff" position="1225,483" size="670,1" zPosition="6"/>
   				<eLabel backgroundColor="#80000000" position="1225,105" size="671,420" zPosition="-10"/>
   				<widget position="1225,105" size="671,377" source="session.VideoPicture" render="Pig" zPosition="3" backgroundColor="#ff000000"/>
-  				<widget position="1225,484" size="670,40" source="session.CurrentService" render="Label" font="Regular;36" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" valign="center" halign="center" noWrap="1" zPosition="5">
+  				<widget position="1225,484" size="670,40" source="session.CurrentService" render="Label" font="Regular;36" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" verticalAlignment="center" horizontalAlignment="center" noWrap="1" zPosition="5">
    					 <convert type="ServiceName">Name</convert>
   				</widget>
 			</screen>
@@ -160,30 +160,30 @@ class OpenVision_Config(Screen, ConfigListScreen):
     else:
         skin = """
 			<screen name="OpenVision_Config" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="OpenVision Setup">
-  				<eLabel text="Choose yout style" position="15,8" size="400,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
-  				<eLabel text="Preview" position="813,375" size="446,40" font="Regular;25" halign="center" valign="center" foregroundColor="#0000ff00" zPosition="2"/>
-  				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="359,8" size="568,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1" halign="center"/>
+  				<eLabel text="Choose yout style" position="15,8" size="400,35" font="Regular;25" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
+  				<eLabel text="Preview" position="813,375" size="446,40" font="Regular;25" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#0000ff00" zPosition="2"/>
+  				<eLabel text="* OpenVision Skin Tools Mod RAED *" position="359,8" size="568,35" font="Regular;25" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1" horizontalAlignment="center"/>
   				<widget name="config" position="25,58" size="775,502" font="Regular;25" itemHeight="50" enableWrapAround="1" backgroundColor="#80000000" transparent="1"/>
-  				<eLabel text="/ Save" position="297,680" size="160,35" font="Regular;25" halign="center" backgroundColor="#80000000" transparent="1" valign="center"/>
-  				<eLabel text="Yellow button Press to select the skin parts" position="17,627" size="668,29" font="Regular;25" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default"/>
-  				<widget name="Picture" position="809,437" size="452,237" alphatest="on"/>
+  				<eLabel text="/ Save" position="297,680" size="160,35" font="Regular;25" horizontalAlignment="center" backgroundColor="#80000000" transparent="1" verticalAlignment="center"/>
+  				<eLabel text="Yellow button Press to select the skin parts" position="17,627" size="668,29" font="Regular;25" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="default"/>
+  				<widget name="Picture" position="809,437" size="452,237" alphaTest="on"/>
   				<ePixmap pixmap="~/pic/key_menu.png" position="20,583" size="103,35" zPosition="10" transparent="1"/>
-  				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="125,587" size="559,25" font="Regular;25" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="default" zPosition="2"/>
+  				<eLabel text="Weather Setup .... Press Menu Button to get to the weather plugin" position="125,587" size="559,25" font="Regular;25" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="default" zPosition="2"/>
   				<eLabel position="2,715" size="230,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="235,715" size="230,5" zPosition="-10" backgroundColor="#0000ff00"/>
   				<eLabel position="470,715" size="230,5" zPosition="-10" backgroundColor="#00ffff00"/>
   				<eLabel position="16,661" size="151,7" zPosition="-10" backgroundColor="#00ffff00"/>
-  				<widget name="key_red" position="25,680" size="188,35" zPosition="1" valign="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
-  				<widget name="key_green" position="289,680" size="100,35" zPosition="1" valign="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
-  				<widget name="key_yellow" position="474,680" size="221,35" zPosition="1" valign="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
-  				<widget source="global.CurrentTime" render="Label" position="941,8" size="326,35" font="Regular;25" halign="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
+  				<widget name="key_red" position="25,680" size="188,35" zPosition="1" verticalAlignment="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
+  				<widget name="key_green" position="289,680" size="100,35" zPosition="1" verticalAlignment="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
+  				<widget name="key_yellow" position="474,680" size="221,35" zPosition="1" verticalAlignment="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
+  				<widget source="global.CurrentTime" render="Label" position="941,8" size="326,35" font="Regular;25" horizontalAlignment="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
    					 <convert type="ClockToText">FullDate</convert>
   				</widget>
   				<eLabel backgroundColor="#0066ccff" position="813,58" size="446,246" zPosition="-15"/>
   				<eLabel backgroundColor="#0066ccff" position="813,308" size="446,1" zPosition="6"/>
   				<eLabel backgroundColor="background" position="813,58" size="446,246" zPosition="-10"/>
   				<widget position="815,80" size="441,199" source="session.VideoPicture" render="Pig" zPosition="3" backgroundColor="#ff000000"/>
-  				<widget position="813,309" size="446,35" source="session.CurrentService" render="Label" font="Regular;25" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" valign="center" halign="center" noWrap="1" zPosition="5">
+  				<widget position="813,309" size="446,35" source="session.CurrentService" render="Label" font="Regular;25" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" verticalAlignment="center" horizontalAlignment="center" noWrap="1" zPosition="5">
    					 <convert type="ServiceName">Name</convert>
   				</widget>
 			</screen>
@@ -768,7 +768,7 @@ class OpenVisionScreens(Screen):
     if reswidth == 1920:
         skin = """
 			<screen name="OpenVisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1920,1080" title="OpenVision Setup">
-  				<eLabel text="Configure Skin" position="180,20" size="1300,50" font="Regular;40" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
+  				<eLabel text="Configure Skin" position="180,20" size="1300,50" font="Regular;40" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
   				<widget source="menu" render="Listbox" position="10,100" size="1180,880" scrollbarMode="showOnDemand" scrollbarWidth="9" enableWrapAround="1" transparent="1">
 					<convert type="TemplatedMultiContent">
 						{"template":
@@ -781,21 +781,21 @@ class OpenVisionScreens(Screen):
 						}
 					</convert>
   				</widget>
-  				<eLabel text="Preview" position="1266,550" size="610,70" font="Regular;40" halign="center" valign="center" zPosition="2"/>
-  				<eLabel text="/ Choose" position="488,1000" size="220,70" font="Regular;33" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="white"/>
-  				<widget name="Picture" position="1265,625" size="612,344" alphatest="on"/>
+  				<eLabel text="Preview" position="1266,550" size="610,70" font="Regular;40" horizontalAlignment="center" verticalAlignment="center" zPosition="2"/>
+  				<eLabel text="/ Choose" position="488,1000" size="220,70" font="Regular;33" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="white"/>
+  				<widget name="Picture" position="1265,625" size="612,344" alphaTest="on"/>
   				<eLabel position="23,1073" size="290,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="370,1073" size="290,5" zPosition="-10" backgroundColor="#0000ff00"/>
-  				<widget source="key_red" render="Label" position="43,1005" size="250,70" zPosition="1" valign="center" font="Regular;33" backgroundColor="#80000000" transparent="1" halign="center"/>
-  				<widget source="key_green" render="Label" position="427,1000" size="80,70" zPosition="1" valign="center" font="Regular;33" backgroundColor="#80000000" transparent="1" />
-  				<widget source="global.CurrentTime" render="Label" position="1192,22" size="585,50" font="Regular;40" halign="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
+  				<widget source="key_red" render="Label" position="43,1005" size="250,70" zPosition="1" verticalAlignment="center" font="Regular;33" backgroundColor="#80000000" transparent="1" horizontalAlignment="center"/>
+  				<widget source="key_green" render="Label" position="427,1000" size="80,70" zPosition="1" verticalAlignment="center" font="Regular;33" backgroundColor="#80000000" transparent="1" />
+  				<widget source="global.CurrentTime" render="Label" position="1192,22" size="585,50" font="Regular;40" horizontalAlignment="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
     					<convert type="ClockToText">FullDate</convert>
   				</widget>
   				<eLabel backgroundColor="#0066ccff" position="1223,103" size="674,423" zPosition="-15"/>
   				<eLabel backgroundColor="#0066ccff" position="1225,483" size="670,1" zPosition="6"/>
   				<eLabel backgroundColor="background" position="1225,105" size="671,420" zPosition="-10"/>
   				<widget position="1225,105" size="671,377" source="session.VideoPicture" render="Pig" zPosition="3" backgroundColor="#ff000000"/>
-  				<widget position="1225,484" size="670,40" source="session.CurrentService" render="Label" font="Regular;36" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" valign="center" halign="center" noWrap="1" zPosition="5">
+  				<widget position="1225,484" size="670,40" source="session.CurrentService" render="Label" font="Regular;36" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" verticalAlignment="center" horizontalAlignment="center" noWrap="1" zPosition="5">
     					<convert type="ServiceName">Name</convert>
   				</widget>
 			</screen>
@@ -803,7 +803,7 @@ class OpenVisionScreens(Screen):
     else:
         skin = """
 			<screen name="OpenVisionScreens" backgroundColor="#80000000" flags="wfNoBorder" position="0,0" size="1280,720" title="OpenVision Setup">
-  				<eLabel text="Configure Skin" position="40,5" size="507,35" font="Regular;25" valign="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
+  				<eLabel text="Configure Skin" position="40,5" size="507,35" font="Regular;25" verticalAlignment="center" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1"/>
   				<widget source="menu" render="Listbox" position="25,58" size="775,594" scrollbarMode="showOnDemand" scrollbarWidth="9" enableWrapAround="1" transparent="1">
       					<convert type="TemplatedMultiContent">
 						{"template":
@@ -816,21 +816,21 @@ class OpenVisionScreens(Screen):
 						}
 					</convert>
   				</widget>
-  				<eLabel text="Preview" position="813,350" size="446,40" font="Regular;25" halign="center" valign="center" foregroundColor="#0000ff00" zPosition="2"/>
-  				<eLabel text="/ Choose" position="337,680" size="204,35" font="Regular;25" backgroundColor="#80000000" transparent="1" valign="center" foregroundColor="white"/>
-  				<widget name="Picture" position="809,437" size="452,237" alphatest="on"/>
+  				<eLabel text="Preview" position="813,350" size="446,40" font="Regular;25" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#0000ff00" zPosition="2"/>
+  				<eLabel text="/ Choose" position="337,680" size="204,35" font="Regular;25" backgroundColor="#80000000" transparent="1" verticalAlignment="center" foregroundColor="white"/>
+  				<widget name="Picture" position="809,437" size="452,237" alphaTest="on"/>
   				<eLabel position="2,715" size="290,5" zPosition="-10" backgroundColor="#00ff0000"/>
   				<eLabel position="230,715" size="290,5" zPosition="-10" backgroundColor="#0000ff00"/>
-  				<widget source="key_red" render="Label" position="25,680" size="188,35" zPosition="1" valign="center" font="Regular;25" backgroundColor="#80000000" transparent="1" halign="center"/>
-  				<widget source="key_green" render="Label" position="284,680" size="80,35" zPosition="1" valign="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
-  				<widget source="global.CurrentTime" render="Label" position="687,7" size="585,35" font="Regular;25" halign="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
+  				<widget source="key_red" render="Label" position="25,680" size="188,35" zPosition="1" verticalAlignment="center" font="Regular;25" backgroundColor="#80000000" transparent="1" horizontalAlignment="center"/>
+  				<widget source="key_green" render="Label" position="284,680" size="80,35" zPosition="1" verticalAlignment="center" font="Regular;25" backgroundColor="#80000000" transparent="1"/>
+  				<widget source="global.CurrentTime" render="Label" position="687,7" size="585,35" font="Regular;25" horizontalAlignment="right" foregroundColor="white" backgroundColor="#80000000" borderColor="#00065c9e" borderWidth="3" transparent="1" zPosition="1">
     					<convert type="ClockToText">FullDate</convert>
   				</widget>
   				<eLabel backgroundColor="#0066ccff" position="813,58" size="446,246" zPosition="-15"/>
   				<eLabel backgroundColor="#0066ccff" position="813,308" size="446,1" zPosition="6"/>
   				<eLabel backgroundColor="background" position="813,58" size="446,246" zPosition="-10"/>
   				<widget position="815,80" size="441,199" source="session.VideoPicture" render="Pig" zPosition="3" backgroundColor="#ff000000"/>
-  				<widget position="813,309" size="446,35" source="session.CurrentService" render="Label" font="Regular;25" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" valign="center" halign="center" noWrap="1" zPosition="5">
+  				<widget position="813,309" size="446,35" source="session.CurrentService" render="Label" font="Regular;25" foregroundColor="#0066ccff" backgroundColor="#80000000" transparent="1" verticalAlignment="center" horizontalAlignment="center" noWrap="1" zPosition="5">
     					<convert type="ServiceName">Name</convert>
   				</widget>
 			</screen>
